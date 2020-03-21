@@ -1,0 +1,45 @@
+﻿@model List<Player>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<style>
+
+    table {
+        border-collapse: separate;
+        border-spacing: 0 10px;
+    }
+
+
+
+</style>
+
+<h1 class="display-3">Lista wszystkich zawodników!</h1>
+
+<hr/>
+<br/>
+<table style = "width: 50%">
+    
+    <thead>
+    
+    <tr>
+        <td>Imię i Nazwisko</td>
+        <td>Wiek</td>
+        <td>Drużyna</td>
+    </tr>
+    </thead>
+    
+    
+    <tbody>
+    @foreach (var player in Model)
+    {
+        <tr>
+            <td>@Html.ActionLink(@player.Name,"PlayerView","Player",new { Id = player.Id})</td>
+            <td>@player.Age</td>
+            <td>@player.Team.Name</td>
+        </tr>
+    }
+    </tbody>
+</table>

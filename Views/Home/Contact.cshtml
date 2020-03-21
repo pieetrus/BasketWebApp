@@ -1,0 +1,95 @@
+﻿@{
+    ViewData["Title"] = ViewBag.PageTitle;
+}
+<h1 class="display-4">@ViewData["Title"]</h1>
+<hr/>
+<br/>
+
+
+
+
+<style>
+
+    .page-container {
+        display: flex;
+        /*border: 3px dashed darkblue;*/
+        box-sizing: border-box;
+
+    }
+
+
+    .aboutme {
+        /*border: 3px dashed green;*/
+        box-sizing: border-box;
+        display: flex;
+        flex-direction: column;
+    }
+
+    .mojezdj {
+        cursor: pointer;
+
+    }
+
+        .mojezdj:hover {
+            background-color: fuchsia;
+            transition: 1.5s;
+            -webkit-filter: blur(3px);
+            -moz-filter: blur(3px);
+            -o-filter: blur(3px);
+            -ms-filter: blur(3px);
+            filter: blur(3px);
+        }
+
+    .zdjkredka:hover {
+        background-color: fuchsia;
+        transition: 2s;
+        -webkit-filter: blur(3px);
+        -moz-filter: blur(3px);
+        -o-filter: blur(3px);
+        -ms-filter: blur(3px);
+        filter: blur(3px);
+    }
+
+    .zdjkredka {
+        cursor: pointer;
+        /*border: 3px dashed green;*/
+        position: relative;
+        align-self: flex-end;
+    }
+
+    .one-time-message {
+
+
+    }
+</style>
+
+
+
+
+<div class="page-container">
+    <div class="aboutme">
+
+        <p>
+            Student trzeciego roku Automatyki i Robotyki na Wydziale Elektroniki na Politechnice Wrocławskiej.
+        </p>
+        <p>
+            Strona powstała w ramach zadania na kurs programowania organizowany przez koło naukowe Kredek.
+        </p>
+        <p>
+            Kontakt: pietrusjakub@gmail.com
+        </p>
+
+        <strong class="one-time-message">@TempData["Message"]</strong>
+
+        <br />
+        <br />
+        <br />
+
+        <a href="https://www.facebook.com/KNKredek/" target="_blank"><img src="~/images/logo_kredek.png" alt="Logo Kredka" class="zdjkredka"></a>
+
+    </div>
+    <a href="https://www.linkedin.com/in/jakub-pietrus-92609018b/" target="_blank"><img src="~/images/ME.png" alt="Zdjecie autora strony" class="mojezdj"></a>
+</div>
+
+
+

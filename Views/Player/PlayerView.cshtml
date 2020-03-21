@@ -1,0 +1,61 @@
+﻿@model Player
+@{
+    ViewData["Title"] = "PlayerView";
+}
+
+
+<style>
+
+
+
+    .page-title {
+        display: flex;
+        width: 90%;
+        /*border: 3px blue dashed;*/
+        justify-content: space-between;
+    }
+
+
+    .logo {
+        /*align-self: flex-end;*/
+    }
+
+
+    .position-team-info {
+        display: flex;
+        width: 90%;
+        /*border: 3px blue dashed;*/
+        justify-content: space-between;
+        font-size: 20px;
+    }
+</style>
+
+
+<div class="page-title">
+    <h1 class="display-4">@Model.Name</h1>
+    <img src="@Model.ImgUrl" />
+</div>
+
+
+<br />
+
+
+<div class="position-team-info">
+
+    <div class="position-name">
+        <p>Pozycja: @Model.Position.Name</p>
+    </div>
+
+    <div class="team-name">
+        <p>Klub: @Html.ActionLink( @Model.Team.Name,"TeamView","Team",new { Id = Model.TeamId}) </p>
+    </div>
+
+</div>
+
+
+
+<p>Statystyki: @Html.ActionLink("BasketballReferences", "GoToLink","Player",new {Url = @Model.StatsUrl} , new {target="_blank"})</p>
+
+
+
+

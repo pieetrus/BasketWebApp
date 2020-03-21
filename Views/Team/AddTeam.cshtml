@@ -1,0 +1,91 @@
+﻿@model Team
+@{
+    ViewData["Title"] = "AddTeam";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+
+    /*.html{
+        height: 100%;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }*/
+
+    .page-title {
+        box-sizing: border-box;
+        /*border: 5px dashed blue;*/
+        height: 170px;
+        width: 100%;
+        display: flex;
+    }
+
+
+    .display-4 {
+        box-sizing: border-box;
+        /*border: 5px dashed blue;*/
+        width: 65%;
+        height: 60%;
+    }
+
+    .team-logo {
+        box-sizing: border-box;
+        /*border: 5px dashed blue;*/
+        height: 100%;
+        float: right;
+    }
+
+    .form-add-team {
+        width: 40%;
+    }
+
+
+    .field-validation-error {
+        color: red;
+    }
+
+
+    .input-validation-error {
+        border: 2px solid red;
+    }
+</style>
+
+<div class="html">
+
+    <div class="page-title">
+        <h1 class="display-4">Dodaj drużyny do bazy!</h1>
+        <img class="team-logo" src="~/images/team.png" alt="koszykarz" />
+    </div>
+
+
+    <div class="form-add-team">
+        @using (Html.BeginForm("Create", "Team"))
+        {
+            <div class="form-group">
+                @Html.LabelFor(t=>t.Name)
+                @Html.TextBoxFor(t=>t.Name, new { @class = "form-control" })
+                @Html.ValidationMessageFor(t=>t.Name)
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(t=>t.Location)
+                @Html.TextBoxFor(t=>t.Location, new { @class = "form-control" })
+                @Html.ValidationMessageFor(t=>t.Location)
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(t=>t.LogoUrl)
+                @Html.TextBoxFor(t=>t.LogoUrl, new { @class = "form-control" })
+                @Html.ValidationMessageFor(t=>t.LogoUrl)
+            </div>
+
+            <button type="submit" class="btn btn-primary">Dodaj</button>
+
+
+        }
+    </div>
+
+
+</div>
+
+

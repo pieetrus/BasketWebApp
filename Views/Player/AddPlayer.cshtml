@@ -1,0 +1,113 @@
+﻿@model Player
+@{
+    ViewData["Title"] = "AddPlayer";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    /*.html{
+        height: 100%;
+        width: 100%;
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }*/
+
+    .page-title {
+        box-sizing: border-box;
+        /*border: 5px dashed blue;*/
+
+        height: 170px;
+        width: 100%;
+
+        display: flex;
+    }
+
+
+    .display-4 {
+        box-sizing: border-box;
+        /*border: 5px dashed blue;*/
+        width: 65%;
+        height: 60%;
+
+    }
+
+    .player-logo {
+        box-sizing: border-box;
+        /*border: 5px dashed blue;*/
+        height: 100%;
+        float: right;
+    }
+
+    .form-add-player {
+        width: 40%;
+    }
+
+
+    .field-validation-error {
+        color: red;
+    }
+
+
+    .input-validation-error {
+        border: 2px solid red;
+    }
+
+
+</style>
+
+<div class="html">
+
+<div class="page-title">
+<h1  class="display-4">Dodaj zawodników do bazy!</h1>
+<img class ="player-logo" src="~/images/player.png" alt="koszykarz"/>
+    </div>
+    
+    
+    <div class="form-add-player">
+        @using (Html.BeginForm("Create", "Player"))
+        {
+            <div class="form-group">
+                @Html.LabelFor(p => p.FirstName)
+                @Html.TextBoxFor(p => p.FirstName, new { @class = "form-control" })
+                @Html.ValidationMessageFor(p=>p.FirstName)
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(p => p.LastName)
+                @Html.TextBoxFor(p => p.LastName, new { @class = "form-control" })
+                @Html.ValidationMessageFor(p => p.LastName)
+
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(p => p.YearOfBorn)
+                @Html.TextBoxFor(p => p.YearOfBorn, new { @class = "form-control" })
+                @Html.ValidationMessageFor(p => p.YearOfBorn)
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(p => p.ImgUrl)
+                @Html.TextBoxFor(p => p.ImgUrl, new { @class = "form-control" })
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(p => p.StatsUrl)
+                @Html.TextBoxFor(p => p.StatsUrl, new { @class = "form-control" })
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(p => p.Position)
+                @Html.DropDownListFor(p => p.PositionId, new SelectList((List<Position>)ViewBag.Positions, "Id", "Name"), "Wybierz pozycję", new { @class = "form-control" })
+                @Html.ValidationMessageFor(p => p.Position.Name)
+
+            </div>
+            <div class="form-group">
+                @Html.LabelFor(p => p.Team)
+                @Html.DropDownListFor(p => p.TeamId, new SelectList((List<Team>)ViewBag.Teams, "Id", "Name"), "Brak drużyny", new { @class = "form-control" })
+                @Html.ValidationMessageFor(p => p.Team.Name)
+            </div>
+
+            <button type="submit" class="btn btn-primary">Dodaj</button>
+
+
+        }
+    </div>
+
+
+</div>
